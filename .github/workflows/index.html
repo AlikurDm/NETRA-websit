@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NETRA - سایت رسمی</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
+    /* Reset */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      background: linear-gradient(135deg, #5b0e6b, #b342ff);
+      color: #fdfcfb;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: hidden;
+    }
+    header {
+      width: 100%;
+      padding: 40px 0;
+      font-size: 3.2rem;
+      font-weight: 900;
+      letter-spacing: 8px;
+      text-align: center;
+      text-transform: uppercase;
+      color: #ffecf8;
+      text-shadow: 0 0 20px #ff86ff, 0 0 30px #ff48f0;
+      user-select: none;
+      animation: glow 3s ease-in-out infinite alternate;
+      background: linear-gradient(90deg, #6a0dad, #ff7e00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    @keyframes glow {
+      0% { text-shadow: 0 0 10px #d060ff, 0 0 25px #d060ff; }
+      100% { text-shadow: 0 0 25px #ff3fff, 0 0 50px #ff3fff; }
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 35px;
+      margin: 25px 0 50px;
+      flex-wrap: wrap;
+      user-select: none;
+    }
+    nav a {
+      font-weight: 700;
+      font-size: 1.3rem;
+      padding: 12px 25px;
+      color: #eee;
+      text-decoration: none;
+      border-radius: 50px;
+      background: rgba(255 255 255 / 0.1);
+      box-shadow: 0 0 15px #a655ff66;
+      transition: all 0.35s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 0;
+    }
+    nav a::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(45deg, #b74bff, #ff7e00);
+      filter: blur(12px);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      border-radius: 50px;
+      z-index: -1;
+    }
+    nav a:hover {
+      color: #fff;
+      background: #b84bff;
+      box-shadow: 0 0 25px #ff73ff, 0 0 45px #ff48e6;
+    }
+    nav a:hover::before {
+      opacity: 1;
+    }
+
+    section {
+      max-width: 900px;
+      background: rgba(255 255 255 / 0.1);
+      backdrop-filter: blur(12px);
+      border-radius: 25px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      padding: 30px 40px;
+      margin-bottom: 40px;
+      color: #fff8ff;
+      font-weight: 600;
+      position: relative;
+      overflow: hidden;
+      border: 2px solid #c25aff99;
+      transition: transform 0.3s ease;
+    }
+    section:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px #d13bffcc;
+      border-color: #ff5aff;
+    }
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 22px;
+      letter-spacing: 2px;
+      color: #ffd2ff;
+      text-shadow: 0 0 6px #d61affcc;
+      user-select: none;
+    }
+    p, ul li {
+      font-size: 1.15rem;
+      line-height: 1.65;
+      color: #f8d9ffcc;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-left: 15px;
+    }
+    ul li {
+      background: linear-gradient(135deg, #bb67ffdd, #ff8a0099);
+      margin-bottom: 15px;
+      padding: 14px 18px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px #b862ff88;
+      font-weight: 700;
+      transition: background 0.3s ease;
+      cursor: default;
+    }
+    ul li:hover {
+      background: #ff6aff;
+      color: #fff;
+      box-shadow: 0 6px 15px #ff5affcc;
+    }
+
+    /* بخش اعتمادسازی */
+    .trust {
+      background: linear-gradient(135deg, #bb43ffdd, #ff8900cc);
+      padding: 20px 30px;
+      border-radius: 20px;
+      font-size: 1.3rem;
+      font-weight: 800;
+      text-align: center;
+      color: #fff9ff;
+      box-shadow: 0 0 30px #ff64ffaa;
+      user-select: none;
+      letter-spacing: 1.5px;
+      text-shadow: 0 0 10px #ff58ffcc;
+    }
+
+    /* بخش تلگرام */
+    .telegram-section {
+      background: #f7e9ff;
+      max-width: 450px;
+      margin: 0 auto 60px;
+      padding: 25px 30px;
+      border-radius: 30px;
+      text-align: center;
+      box-shadow: 0 0 30px #b742ff88;
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: #6a0dad;
+      user-select: text;
+      cursor: default;
+      transition: box-shadow 0.35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .telegram-section:hover {
+      box-shadow: 0 0 40px #ff79ffcc;
+    }
+    .telegram-link {
+      display: inline-block;
+      margin-top: 18px;
+      background: linear-gradient(45deg, #6a0dad, #ff7e00);
+      color: white;
+      padding: 15px 35px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 1.4rem;
+      box-shadow: 0 0 15px #a14aff;
+      transition: background 0.4s ease, box-shadow 0.4s ease;
+      user-select: text;
+    }
+    .telegram-link:hover {
+      background: #ff50ff;
+      box-shadow: 0 0 35px #ff5affcc;
+    }
+
+    /* فرم تماس */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-top: 10px;
+    }
+    input, textarea {
+      font-family: 'Vazirmatn', sans-serif;
+      padding: 14px 18px;
+      border-radius: 20px;
+      border: none;
+      font-size: 1.1rem;
+      resize: none;
+      font-weight: 700;
+      transition: box-shadow 0.3s ease;
+      background: #fff8ffcc;
+      color: #5b0e6b;
+      box-shadow: 0 0 10px #c66aff88;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      box-shadow: 0 0 15px #ff52ffcc;
+      background: #fff;
+      color: #43005f;
+    }
+    button.submit-btn {
+      background: linear-gradient(45deg, #ff7e00, #b742ff);
+      border: none;
+      padding: 16px 25px;
+      border-radius: 30px;
+      font-weight: 900;
+      font-size: 1.3rem;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 0 25px #ff7e00cc;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+    button.submit-btn:hover {
+      background: linear-gradient(45deg, #ff4e4e, #bb22ff);
+      box-shadow: 0 0 35px #ff4effcc;
+    }
+
+    /* ریسپانسیو */
+    @media (max-width: 768px) {
+      header {
+        font-size: 2.7rem;
+        padding: 35px 0;
+      }
+      nav a {
+        font-size: 1.1rem;
+        padding: 10px 20px;
+      }
+      section {
+        margin: 25px 15px;
+        padding: 25px 30px;
+      }
+      .telegram-section {
+        max-width: 90%;
+        font-size: 1.3rem;
+        padding: 20px 25px;
+      }
+      .telegram-link {
+        font-size: 1.2rem;
+        padding: 13px 25px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      header {
+        font-size: 2rem;
+        padding: 30px 0;
+      }
+      nav a {
+        font-size: 1rem;
+        padding: 8px 15px;
+      }
+      section {
+        padding: 20px 25px;
+      }
+      .telegram-link {
+        font-size: 1.1rem;
+        padding: 12px 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>NETRA</header>
+
+  <nav>
+    <a href="#about">درباره ما</a>
+    <a href="#services">خدمات</a>
+    <a href="#trust">اعتمادسازی</a>
+    <a href="#contact">تماس با ما</a>
+  </nav>
+
+  <section id="about">
+    <h2>درباره ما</h2>
+    <p>نترا یک فروشگاه آنلاین مدرن است که به شما بهترین خدمات و محصولات را ارائه می‌دهد. ما همیشه در تلاشیم تجربه خرید شما را بهتر و ساده‌تر کنیم.</p>
+  </section>
+
+  <section id="services">
+    <h2>خدمات</h2>
+    <ul>
+      <li>فروش محصولات با کیفیت بالا</li>
+      <li>پشتیبانی 24 ساعته</li>
+      <li>ارسال سریع و مطمئن</li>
+    </ul>
+  </section>
+
+  <section id="trust">
+    <h2>چرا نترا شاپ؟</h2>
+    <div class="trust">
+      نترا شاپ بیشتر از 100 معامله و فروش موفق داشته! ☺️
+    </div>
+  </section>
+
+  <section class="telegram-section">
+    <div>برای ارتباط سریع‌تر و پشتیبانی تلگرام:</div>
+    <a href="https://t.me/ID_NETRA1" target="_blank" class="telegram-link">@ID_NETRA1</a>
+  </section>
+
+  <section id="contact">
+    <h2>تماس با ما</h2>
+    <form onsubmit="event.preventDefault(); alert('پیام شما ارسال شد!');">
+      <input type="text" placeholder="نام شما" required />
+      <input type="email" placeholder="ایمیل شما" required />
+      <textarea rows="4" placeholder="پیام شما" required></textarea>
+      <button type="submit" class="submit-btn">ارسال پیام</button>
+    </form>
+  </section>
+
+</body>
+</html>
